@@ -35,7 +35,7 @@ rtPKCS11ECP
 
 Некоторые службы (госуслуги) можно заставить работать без КриптоПро. 
 Для рутокен тогда понадобится библиотека https://www.rutoken.ru/support/download/pkcs/ для поддержки ГОСТ в PKCS.
-
+Виндовой бесплатной КриптоПро Рутокен CSP нет. Пока не настраивал.
 
 
 
@@ -105,9 +105,10 @@ sudo ln -s /etc/opt/chrome/native-messaging-hosts/ru.rtlabs.ifcplugin.json /etc/
 ```
 
 
-Сайт налоговой
+Сайт налоговой nalog.ru
 ---
 
+В личный кабинет физлица пустит с любого браузера. В лк ИП через ГОСТ.
 Предлагает скачать cades.
 
 ```
@@ -122,9 +123,10 @@ dpkg -i cprocsp-pki-cades_2.0.0-1_amd64.deb cprocsp-pki-plugin_2.0.0-1_amd64.deb
 СБИС
 ---
 
-Поддержка линукс сейчас на внутреннем тестировании. Но установить можно.
+Поддержка линукс сейчас на внутреннем тестировании. Но установить можно. Расширение
 https://chrome.google.com/webstore/detail/sbis-plugin-extension/pbcgcpeifkdjijdjambaakmhhpkfgoec?hl=ru&authuser=1
 
+Когда запустят в продакшн будет окно со ссылкой на
 http://update.sbis.ru/Sbis3Plugin/master/linux/sbis3plugin-setup.tar.xz
 
 ```
@@ -140,22 +142,23 @@ sudo dpkg-reconfigure ca-certificates
 sudo update-ca-certificates
 sudo mkdir -p /etc/pki/tls/certs/
 sudo ln -s /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
-``
+```
 
 Для дебиан 9
 
+```
 sudo ln -s /bin/mkdir /usr/bin/mkdir
 sudo ln -s /bin/chmod /usr/bin/chmod
-
+```
 
 Переходим на сайт сбиса. Пробуем войти с подписью.
 Переходим в инспектор и ставим точку останова после SBIS3.Plugin/Source/Environment/PluginMigrate на isUseNewPlugin
 
 в файле https://online.sbis.ru/auth/resources/SBIS3.Plugin/sbis3plugin_min.package.min.js?x_module=19.613-20
 
-перезагрузить страницу и на точке останова добавить u.detection в Watch и поставить isMac = true
+перезагрузить страницу и на точке останова добавить `u.detection` в `Watch` и поставить `isMac = true`
 
-добавить сертификат /usr/share/ca-certificates/sbis.crt в центры сертификации в браузере chrome://settings/certificates  
+добавить сертификат `/usr/share/ca-certificates/sbis.crt` в центры сертификации в браузере chrome://settings/certificates  
 
 
 Посмотреть ещё
