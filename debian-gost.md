@@ -161,6 +161,32 @@ sudo ln -s /bin/chmod /usr/bin/chmod
 добавить сертификат `/usr/share/ca-certificates/sbis.crt` в центры сертификации в браузере chrome://settings/certificates  
 
 
+1C
+---
+
+Добавить алгоритмы в CAPI
+```
+export PATH=$PATH:/opt/cprocsp/bin/amd64/:/opt/cprocsp/sbin/amd64/
+
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2001 Cryptographic Service Provider' -add string 'Function Table Name' CPCSP_GetFunctionTable
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2001 Cryptographic Service Provider' -add long Type 75
+
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Cryptographic Service Provider' -add string 'Image Path' /opt/cprocsp/lib/amd64/libcsp.so
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Cryptographic Service Provider' -add string 'Function Table Name' CPCSP_GetFunctionTable
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Cryptographic Service Provider' -add long Type 80
+
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Strong Cryptographic Service Provider' -add string 'Image Path' /opt/cprocsp/lib/amd64/libcsp.so
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Strong Cryptographic Service Provider' -add string 'Function Table Name' CPCSP_GetFunctionTable
+cpconfig -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 Strong Cryptographic Service Provider' -add long Type 81
+```
+
+Перейти `e1cib/app/ОбщаяФорма.НастройкиЭлектроннойПодписиИШифрования` 
+
+Добавить Крипто Про в Программы по типу 75. Добавить Крипторо ещё раз. Указать тип `80` и имя `Crypto-Pro GOST R 34.10-2012 Cryptographic Service Provider` алгоритмы выбрать из списка `GR 34.10-2012 256` и `GR 34.11-2012 256`
+
+Указать путь к программам `/opt/cprocsp/lib/amd64/libcapi20.so`
+
+
 Посмотреть ещё
 ---
 
