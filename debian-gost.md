@@ -151,6 +151,8 @@ sudo ln -s /bin/mkdir /usr/bin/mkdir
 sudo ln -s /bin/chmod /usr/bin/chmod
 ```
 
+Для скриншотов `libavcodec-dev libva1 libva-drm1`
+
 Переходим на сайт сбиса. Пробуем войти с подписью.
 Переходим в инспектор и ставим точку останова после SBIS3.Plugin/Source/Environment/PluginMigrate на isUseNewPlugin
 
