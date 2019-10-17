@@ -119,6 +119,15 @@ dpkg -i cprocsp-pki-cades_2.0.0-1_amd64.deb cprocsp-pki-plugin_2.0.0-1_amd64.deb
 
 И расширение браузера https://chrome.google.com/webstore/detail/cryptopro-extension-for-c/iifchhfnnmpdbibifmljnfjhpififfog?hl=ru&authuser=1
 
+Неправильные алиасы к оидам в поставке криптопро 5
+
+```
+export PATH=$PATH:/opt/cprocsp/bin/amd64/:/opt/cprocsp/sbin/amd64/
+
+cpconfig -ini '\cryptography\OID\1.2.643.7.1.1.1.1!3' -add string 'Name' 'GOST R 34.10-2012 256 bit'
+cpconfig -ini '\cryptography\OID\1.2.643.7.1.1.1.2!3' -add string 'Name' 'GOST R 34.10-2012 512 bit'
+```
+
 
 СБИС
 ---
