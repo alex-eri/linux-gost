@@ -44,10 +44,10 @@ rtPKCS11ECP
 
 
 Потребуется для сайтов с транспортом на ГОСТ пропатченный Хром с внешним шифрованием. Нужен КриптоПро для работы.
-Качать тут https://github.com/deemru/chromium-gost/releases/ . Для Linux сейчас не собирается последний релиз, смотри предпоследний.
+Качать тут https://github.com/deemru/chromium-gost/releases/ . <s>Для Linux сейчас не собирается последний релиз, смотри предпоследний.</s>
 
 ```
-dpkg -i chromium-gost-77.0.3865.90-linux-amd64.deb
+dpkg -i chromium-gost-85.0.4183.121-linux-amd64.deb
 apt -f install
 ```
 
